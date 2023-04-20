@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Music_media_player</string>
+    <string name="letsdo_buttom">Let\'s Do it!</string>
+    <string name="Tittleapp_name">Music Media Player</string>
+    <string name="songs">Songs</string>
+    <string name="shuffle_btn">Shuffle</string>
+    <string name="favourites_btn">Favourites</string>
+    <string name="playlist_btn">Playlists</string>
+</resources>
