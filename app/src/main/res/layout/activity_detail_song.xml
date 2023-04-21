@@ -77,29 +77,11 @@
             android:layout_margin="20dp"
             app:backgroundTint="@color/white"
             android:clickable="true"
+            android:tint="@color/black"
             android:contentDescription="Play"
             android:src="@drawable/ic_play_arrow"
             app:shapeAppearanceOverlay="@style/curved"/>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:backgroundTint="@color/white"
-            android:layout_margin="20dp"
-            android:clickable="true"
-            android:src="@drawable/ic_pause_circle"
-            app:shapeAppearanceOverlay="@style/curved"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:backgroundTint="@color/white"
-            android:clickable="true"
-            android:src="@drawable/ic_stop_circle"
-            app:shapeAppearanceOverlay="@style/curved"/>
     </LinearLayout>
 
     <LinearLayout
@@ -115,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             app:backgroundTint="@color/white"
+            android:tint="@color/black"
             android:clickable="true"
             android:src="@drawable/ic_backward"
             app:shapeAppearanceOverlay="@style/curved"/>
@@ -124,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:tint="@color/black"
             app:backgroundTint="@color/white"
             android:clickable="true"
             android:src="@drawable/ic_forward"

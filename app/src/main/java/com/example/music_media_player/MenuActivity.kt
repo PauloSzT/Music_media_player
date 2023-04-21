@@ -1,21 +1,15 @@
 package com.example.music_media_player
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import java.lang.reflect.Field
 
 
@@ -27,7 +21,7 @@ class MenuActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         allTracks.first().name
-        Log.wtf("PauloLogs", "onCreate: ",)
+        Log.wtf("PauloLogs", "onCreate: ")
 
         val inflater = LayoutInflater.from(applicationContext)
         val tvResult = findViewById<TextView>(R.id.tvResult)
@@ -36,6 +30,12 @@ class MenuActivity() : AppCompatActivity() {
 
         val subtitleSongs = findViewById<TextView>(R.id.subtitleSongs)
         subtitleSongs.text = "SONGS"
+
+        val backBtn = findViewById<ImageView>(R.id.back_arrow)
+        backBtn.setOnClickListener() {
+            val intent = Intent(this, OpenActivity::class.java)
+            startActivity(intent)
+        }
 
         val songsContainer = findViewById<LinearLayout>(R.id.song_container)
         allTracks.forEachIndexed { index, field ->
