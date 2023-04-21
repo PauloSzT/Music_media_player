@@ -12,6 +12,7 @@ import java.lang.Exception
 import android.os.Handler
 import android.os.Looper
 import android.widget.ImageView
+import android.widget.TextView
 
 
 class DetailSongActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class DetailSongActivity : AppCompatActivity() {
     private var songIndex: Int = 0
     val handler = Handler(Looper.getMainLooper())
     lateinit var runnable: Runnable
+    lateinit var currentSongName: TextView
 
     private var mediaPlayer: MediaPlayer? = null
     private var songs = listOf(
@@ -41,6 +43,8 @@ class DetailSongActivity : AppCompatActivity() {
         fab_forward = findViewById(R.id.fab_forward)
         fab_backward = findViewById(R.id.fab_backward)
         seekbar = findViewById(R.id.seekbar)
+        currentSongName = findViewById(R.id.songname)
+        currentSongName.text = intent.extras?.getString("trackName")
         createMediaPlayer()
         initializeSeekBar()
 
@@ -62,7 +66,7 @@ class DetailSongActivity : AppCompatActivity() {
                 override fun run() {
                     try {
                         seekbar.progress = mp.currentPosition
-                        handler.postDelayed(this, 100)
+                        handler.postDelayed(this, 1000)
                     } catch (e: Exception) {
                         Log.wtf("Exception", e.message)
                     }
@@ -78,8 +82,10 @@ class DetailSongActivity : AppCompatActivity() {
             fab_play.setOnClickListener {
                 if (!mp.isPlaying) {
                     mp.start()
+                    fab_play.setImageResource(R.drawable.ic_pause_circle)
                 } else {
                     mp.pause()
+                    fab_play.setImageResource(R.drawable.ic_play)
                 }
             }
 
@@ -139,7 +145,7 @@ class DetailSongActivity : AppCompatActivity() {
 
         mediaPlayer?.let { mp ->
             seekbar.max = mp.duration
-            handler.postDelayed(runnable, 0)
+            handler.postDelayed(runnable, 1000)
         }
     }
 

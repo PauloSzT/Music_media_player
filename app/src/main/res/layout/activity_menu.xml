@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/button_backContainer"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@color/background_app"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/back_arrow"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/button_backContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:clickable="true"
-            android:src="@drawable/ic_backarrow" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:clickable="true"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
+                style="@style/MarqueeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Tittleapp_name"
+                android:textColor="@color/button_start"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                tools:text="@string/Tittleapp_name"></TextView>
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/tvResult"
+            style="@style/MarqueeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingBottom="32dp"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="normal"
+            tools:text="$name Play your songs" />
+
+        <TextView
+            android:id="@+id/subtitleSongs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="32dp"
+            android:text="@string/songs"
             android:textColor="@color/button_start"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            style="@style/MarqueeText"
-            android:text="@string/Tittleapp_name"
-            tools:text="@string/Tittleapp_name">
-        </TextView>
-    </LinearLayout>
+            android:textSize="36sp"
+            android:textStyle="bold"></TextView>
 
-    <TextView
-        android:id="@+id/tvResult"
-        style="@style/MarqueeText"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_height="wrap_content"
-        android:textStyle="normal"
-        android:paddingBottom="32dp"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        tools:text="$name Play your songs" />
-
-    <TextView
-        android:id="@+id/subtitleSongs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="32dp"
-        android:text="@string/songs"
-        android:textStyle="bold"
-        android:textColor="@color/button_start"
-        android:textSize="36sp"></TextView>
-
-    <LinearLayout
-        android:id="@+id/song_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"></LinearLayout>
+        <LinearLayout
+            android:id="@+id/song_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
 </LinearLayout>

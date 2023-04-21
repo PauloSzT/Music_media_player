@@ -52,6 +52,7 @@ class MenuActivity() : AppCompatActivity() {
             songRow.setOnClickListener {
                 val intent = Intent(this, DetailSongActivity::class.java)
                 intent.putExtra("songIndex", index)
+                intent.putExtra("trackName", trackName)
                 startActivity(intent)
             }
             songsContainer.addView(songRow)

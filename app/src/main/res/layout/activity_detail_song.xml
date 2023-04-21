@@ -46,6 +46,7 @@
         app:strokeColor="@color/good_pink"
         app:strokeWidth="5dp"/>
     <TextView
+        android:id="@+id/songname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/songs"
@@ -79,7 +80,7 @@
             android:clickable="true"
             android:tint="@color/black"
             android:contentDescription="Play"
-            android:src="@drawable/ic_play_arrow"
+            android:src="@drawable/ic_pause_circle"
             app:shapeAppearanceOverlay="@style/curved"/>
 
     </LinearLayout>
