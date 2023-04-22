@@ -1,7 +1,9 @@
 package com.example.music_media_player
 
 import android.content.Intent
+import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +15,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.ImageView
 import android.widget.TextView
-
+import java.lang.reflect.Field
 
 class DetailSongActivity : AppCompatActivity() {
 
@@ -25,7 +27,7 @@ class DetailSongActivity : AppCompatActivity() {
     val handler = Handler(Looper.getMainLooper())
     lateinit var runnable: Runnable
     lateinit var currentSongName: TextView
-
+    private val allTracks: Array<Field> = R.raw::class.java.fields
     private var mediaPlayer: MediaPlayer? = null
     private var songs = listOf(
         R.raw.aleluya,
@@ -44,7 +46,7 @@ class DetailSongActivity : AppCompatActivity() {
         fab_backward = findViewById(R.id.fab_backward)
         seekbar = findViewById(R.id.seekbar)
         currentSongName = findViewById(R.id.songname)
-        currentSongName.text = intent.extras?.getString("trackName")
+
         createMediaPlayer()
         initializeSeekBar()
 
@@ -59,6 +61,15 @@ class DetailSongActivity : AppCompatActivity() {
     private fun createMediaPlayer() {
 
         mediaPlayer = MediaPlayer.create(this, songs[songIndex])
+        val fileName = allTracks[songIndex].name
+        val metadataRetriever = MediaMetadataRetriever()
+        val path = "android.resource://${this.packageName}/raw/${fileName}"
+        val uri = Uri.parse(path)
+        metadataRetriever.setDataSource(this, uri)
+        val trackName =
+            metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE)
+                .toString()
+        currentSongName.text = trackName
         mediaPlayer?.setVolume(1.0f, 1.0f)
         mediaPlayer?.start()
         mediaPlayer?.let { mp ->
@@ -66,7 +77,7 @@ class DetailSongActivity : AppCompatActivity() {
                 override fun run() {
                     try {
                         seekbar.progress = mp.currentPosition
-                        handler.postDelayed(this, 1000)
+                        handler.postDelayed(this, 100)
                     } catch (e: Exception) {
                         Log.wtf("Exception", e.message)
                     }
@@ -145,7 +156,7 @@ class DetailSongActivity : AppCompatActivity() {
 
         mediaPlayer?.let { mp ->
             seekbar.max = mp.duration
-            handler.postDelayed(runnable, 1000)
+            handler.postDelayed(runnable, 100)
         }
     }
 

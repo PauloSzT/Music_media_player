@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/image_song"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/image_song"
+            android:layout_width="250dp"
+            android:layout_height="250dp" />
+    </ConstraintSet>
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="300"
+        app:layoutDuringTransition="honorRequest"
+        app:motionInterpolator="linear">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@+id/image_song" />
+    </Transition>
+</MotionScene>

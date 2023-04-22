@@ -4,14 +4,12 @@ import android.content.Intent
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.lang.reflect.Field
-
 
 class MenuActivity() : AppCompatActivity() {
 
@@ -20,8 +18,7 @@ class MenuActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        allTracks.first().name
-        Log.wtf("PauloLogs", "onCreate: ")
+
 
         val inflater = LayoutInflater.from(applicationContext)
         val tvResult = findViewById<TextView>(R.id.tvResult)
@@ -52,7 +49,6 @@ class MenuActivity() : AppCompatActivity() {
             songRow.setOnClickListener {
                 val intent = Intent(this, DetailSongActivity::class.java)
                 intent.putExtra("songIndex", index)
-                intent.putExtra("trackName", trackName)
                 startActivity(intent)
             }
             songsContainer.addView(songRow)
