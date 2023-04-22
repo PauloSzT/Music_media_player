@@ -4,7 +4,7 @@ Application to display Star Wars characters list with details
 
 ## Screenshots
 
-![image](.app/src/main/res/drawable/Musicmediaplayer.png)
+![image](.app/src/main/res/drawable/musicmediaplayer.jpg)
 
 ## Built With
 
